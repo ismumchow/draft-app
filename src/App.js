@@ -4,7 +4,7 @@ import SearchParams from "./SearchParams";
 
 const App = () => {
   return (
-    <div className ="fluid-container">
+    <div className="fluid-container">
       <SearchParams />
     </div>
   );
