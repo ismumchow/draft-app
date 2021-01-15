@@ -1,12 +1,9 @@
 import React, { useState } from "react";
-// custom hook we are creating
-
-// gonna pass a label, a default state, and a list of options, an array or obj
 
 const useDropdown = (label, defaultState, options) => {
   const [state, setState] = useState(defaultState);
-  const id = `use-dropdown-${label.replace("", " ").toLowerCase()}`;
-  const dropdown = () => (
+  const id = `use-dropdown-${label.replace(" ", "").toLowerCase()}`;
+  const Dropdown = () => (
     <label htmlFor={id}>
       {label}
       <select
@@ -14,19 +11,18 @@ const useDropdown = (label, defaultState, options) => {
         value={state}
         onChange={(e) => setState(e.target.value)}
         onBlur={(e) => setState(e.target.value)}
-        disables={!options.length}
+        disabled={!options.length}
       >
-        <option> All </option>
-        {options.map((option) => (
-          <option key={option} value={option}>
-            {option}
+        <option />
+        {options.map((item) => (
+          <option key={item} value={item}>
+            {item}
           </option>
         ))}
-        {/* for each option create a new option tag with the value option from the passed array */}
       </select>
     </label>
   );
-  return [state, dropdown, setState];
+  return [state, Dropdown, setState];
 };
 
 export default useDropdown;

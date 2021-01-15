@@ -1,5 +1,5 @@
 {
-  "name": "draft-me",
+  "name": "adopt-me",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,7 +9,6 @@
     "format": "prettier --write \"src/**/*.{js,jsx}\"",
     "dev": "parcel src/index.html"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
@@ -25,8 +24,10 @@
   },
   "dependencies": {
     "@frontendmasters/pet": "^1.0.3",
-    "bootstrap": "^5.0.0-beta1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
-  }
+  },
+  "browserslist": [
+    "last 2 Chrome versions"
+  ]
 }
