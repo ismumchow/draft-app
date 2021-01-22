@@ -34420,15 +34420,61 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
+var _pet = _interopRequireDefault(require("@frontendmasters/pet"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const Details = () => {
-  return /*#__PURE__*/_react.default.createElement("h1", null, " hi lol");
-};
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+class Details extends _react.default.Component {
+  constructor(...args) {
+    super(...args);
+
+    _defineProperty(this, "state", {
+      loading: true
+    });
+  }
+
+  componentDidMount() {
+    // useful for ajax requests
+    _pet.default.animal(this.props.id).then(({
+      animal
+    }) => {
+      this.setState({
+        name: animal.name,
+        animal: animal.type,
+        location: `${animal.contact.address.city}, 
+        ${animal.contact.address.state}`,
+        description: animal.description,
+        media: animal.photos,
+        breed: animal.breeds.primary,
+        loading: false
+      });
+    }, console.error);
+  }
+
+  render() {
+    if (this.state.loading) {
+      return /*#__PURE__*/_react.default.createElement("h1", null, " loading... ");
+    }
+
+    const {
+      animal,
+      breed,
+      location,
+      description,
+      name
+    } = this.state;
+    return /*#__PURE__*/_react.default.createElement("div", {
+      className: "details"
+    }, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, " ", name, " "), /*#__PURE__*/_react.default.createElement("h2", null, `${animal} - ${breed} - ${location}`), /*#__PURE__*/_react.default.createElement("button", null, " Adopt ", name, " "), /*#__PURE__*/_react.default.createElement("p", null, " ", description, " ")));
+  }
+
+}
 
 var _default = Details;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js"}],"app.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","@frontendmasters/pet":"../node_modules/@frontendmasters/pet/index.js"}],"app.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -34482,7 +34528,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53983" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59742" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
