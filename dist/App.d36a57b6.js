@@ -34233,7 +34233,7 @@ module.exports.ANIMALS = require("./animals");
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = Pet;
+exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
@@ -34241,14 +34241,15 @@ var _router = require("@reach/router");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function Pet({
-  name,
-  animal,
-  breed,
-  media,
-  location,
-  id
-}) {
+const Pet = props => {
+  const {
+    name,
+    animal,
+    breed,
+    media,
+    location,
+    id
+  } = props;
   let hero = "http://placecorgi.com/300/300";
 
   if (media.length) {
@@ -34265,8 +34266,11 @@ function Pet({
     alt: name
   })), /*#__PURE__*/_react.default.createElement("div", {
     className: "info"
-  }, /*#__PURE__*/_react.default.createElement("h1", null, " ", name), /*#__PURE__*/_react.default.createElement("h2", null, " ", `${animal} - ${breed} - ${location}`)));
-}
+  }, /*#__PURE__*/_react.default.createElement("h1", null, name), /*#__PURE__*/_react.default.createElement("h2", null, `${animal} — ${breed} — ${location}`)));
+};
+
+var _default = Pet;
+exports.default = _default;
 },{"react":"../node_modules/react/index.js","@reach/router":"../node_modules/@reach/router/es/index.js"}],"Results.js":[function(require,module,exports) {
 "use strict";
 
@@ -34508,6 +34512,7 @@ class Carousel extends _react.default.Component {
       key: photo,
       onClick: this.handleIndexClick,
       "data-index": index,
+      src: photo,
       className: index === active ? "active" : "",
       alt: "animal thumbnail"
     }))));
@@ -34778,7 +34783,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63684" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51923" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
